@@ -1,30 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from './Card';
-import Apireq from '../utils/api';
 
-function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, deleteCard }) {
-
-  const [userName, setUserName] = useState('');
-  const [userDescription, setUserDescription] = useState('');
-  const [userAvatar, setUserAvatar] = useState('');
-  const [cards, setCards] = useState([]);
-
-  useEffect(() => {
-    Promise.all([Apireq.getCards(), Apireq.getUserData()])
-      .then((res) => {
-        setUserName(res[1].name);
-        setUserDescription(res[1].about);
-        setUserAvatar(res[1].avatar);
-        setCards(res[0].map((item) => ({
-          name: item.name,
-          link: item.link,
-          likes: item.likes.length,
-          id: item._id,
-        })));
-      })
-      .catch((err) => console.log(err));
-  }, [])
-
+function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, deleteCard, userAvatar, userDescription, userName, cards }) {
 
   return (
     <main className="main">

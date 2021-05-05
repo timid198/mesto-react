@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
+import api from '../utils/api';
 
 function App() {
+
+  const [profileName, setProfileName] = useState('');
+  const [profileDescription, setProfileDescription] = useState('');
+  const [profileAvatar, setProfileAvatar] = useState('');
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    Promise.all([api.getCards(), api.getUserData()])
+      .then((res) => {
+        setProfileName(res[1].name);
+        setProfileDescription(res[1].about);
+        setProfileAvatar(res[1].avatar);
+        setTodos(res[0].map((item) => ({
+          name: item.name,
+          link: item.link,
+          likes: item.likes.length,
+          id: item._id,
+        })));
+      })
+      .catch((err) => console.log(err));
+  }, [])
 
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
 
@@ -50,7 +72,8 @@ function App() {
       <div className="page">
 
         <Header />
-        <Main onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick} onCardClick={handleCardClick} deleteCard={handleDeleteCard} />
+        <Main onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick} onCardClick={handleCardClick} 
+        deleteCard={handleDeleteCard} userAvatar={profileAvatar} userDescription={profileDescription} userName={profileName} cards={todos}  />
         <Footer />
 
         <PopupWithForm name="edit" title="Редактировать профиль" children buttonText="Сохранить" isOpen={isEditProfilePopupOpen} onClose={closeAllPopups}>
