@@ -1,4 +1,4 @@
-class Api {
+export default class Api {
     constructor({ address, token, groupID }) {
         this._address = address;
         this._token = token;
@@ -109,4 +109,4 @@ const api = new Api({
     groupID: 'cohort-22',
   })
 
-export default api;
+export {api};
