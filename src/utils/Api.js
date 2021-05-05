@@ -1,4 +1,4 @@
-export default class Api {
+class Api {
     constructor({ address, token, groupID }) {
         this._address = address;
         this._token = token;
@@ -103,10 +103,10 @@ export default class Api {
     }
 }
 
-const api = new Api({
+const Apireq = new Api({
     address: 'https://mesto.nomoreparties.co/',
     token: '4f64f170-2de3-4b0f-8592-8133023e0f4d',
     groupID: 'cohort-22',
   })
 
-export {api};
+export default Apireq;
