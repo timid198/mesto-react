@@ -1,10 +1,10 @@
 import React from 'react';
 
-function PopupWithForm({ name, title, children, isOpen, onClose }) {
+function PopupWithForm({ name, title, children, buttonText, isOpen, onClose }) {
 
-  let className = 'popup popup-${name}';
+  let className = `popup popup-${name}`;
   if (isOpen) {
-    className += ' popup_opened';
+    className += ` popup_opened`;
   }
 
   return (
@@ -14,6 +14,7 @@ function PopupWithForm({ name, title, children, isOpen, onClose }) {
         <h2 className={`popup__title popup-${name}__title`}>{title}</h2>
         <form className={`popup__form popup-${name}__form`} noValidate>
           {children}
+          <button type="submit" className={`popup__button popup-${name}__button`}>{buttonText}</button>
         </form>
       </div>
     </div>

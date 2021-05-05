@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Card from './Card';
-import api from '../utils/Api';
+import api from '../utils/api';
 
 function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, deleteCard }) {
 
-  const [userName, setUserName] = useState([]);
-  const [userDescription, setUserDescription] = useState([]);
-  const [userAvatar, setUserAvatar] = useState([]);
+  const [userName, setUserName] = useState('');
+  const [userDescription, setUserDescription] = useState('');
+  const [userAvatar, setUserAvatar] = useState('');
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, deleteCard
 
   return (
     <main className="main">
-      <section className="profile" _id="#">
+      <section className="profile">
         <div className="profile__content">
           <div className="profile__image">
             <img src={userAvatar} alt="Аватар" className="profile__avatar" />
@@ -45,7 +45,7 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, deleteCard
       </section>
 
       <section className="elements">
-        {cards.map((item) => <Card key={item.id} card={item} cardClick={onCardClick} cardDeleteClick={deleteCard} />)}
+        {cards.map((item) => (<Card key={item.id} card={item} cardClick={onCardClick} cardDeleteClick={deleteCard} />))}
       </section>
     </main>
   );
