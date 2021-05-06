@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PopupWithForm({ name, title, children, buttonText, isOpen, onClose }) {
+function PopupWithForm({ name, title, buttonText, isOpen, onClose, children }) {
 
   let className = `popup popup-${name}`;
   if (isOpen) {

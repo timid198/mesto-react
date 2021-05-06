@@ -1,33 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
-import api from '../utils/api';
 
 function App() {
-
-  const [profileName, setProfileName] = useState('');
-  const [profileDescription, setProfileDescription] = useState('');
-  const [profileAvatar, setProfileAvatar] = useState('');
-  const [todos, setTodos] = useState([]);
-
-  useEffect(() => {
-    Promise.all([api.getCards(), api.getUserData()])
-      .then((res) => {
-        setProfileName(res[1].name);
-        setProfileDescription(res[1].about);
-        setProfileAvatar(res[1].avatar);
-        setTodos(res[0].map((item) => ({
-          name: item.name,
-          link: item.link,
-          likes: item.likes.length,
-          id: item._id,
-        })));
-      })
-      .catch((err) => console.log(err));
-  }, [])
 
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
 
@@ -64,7 +42,7 @@ function App() {
     setIsAddPlacePopupOpen(false);
     setIsEditProfilePopupOpen(false);
     setCardToDelete(false)
-    setSelectedCard(false);
+    setSelectedCard({});
   }
 
   return (
@@ -72,11 +50,10 @@ function App() {
       <div className="page">
 
         <Header />
-        <Main onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick} onCardClick={handleCardClick} 
-        deleteCard={handleDeleteCard} userAvatar={profileAvatar} userDescription={profileDescription} userName={profileName} cards={todos}  />
+        <Main onEditProfile={handleEditProfileClick} onAddPlace={handleAddPlaceClick} onEditAvatar={handleEditAvatarClick} onCardClick={handleCardClick} deleteCard={handleDeleteCard}  />
         <Footer />
 
-        <PopupWithForm name="edit" title="Редактировать профиль" children buttonText="Сохранить" isOpen={isEditProfilePopupOpen} onClose={closeAllPopups}>
+        <PopupWithForm name="edit" title="Редактировать профиль" buttonText="Сохранить" isOpen={isEditProfilePopupOpen} onClose={closeAllPopups}>
           <section className="popup__section">
             <input type="text" name="name" className="popup__input popup__input_name" placeholder="Имя" minLength="2" maxLength="40" required />
             <span className="popup__error popup__error_name" id="name-error"> </span>
@@ -87,14 +64,14 @@ function App() {
           </section>
         </PopupWithForm>
 
-        <PopupWithForm name="avatar" title="Обновить аватар" children buttonText="Сохранить" isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups}>
+        <PopupWithForm name="avatar" title="Обновить аватар" buttonText="Сохранить" isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups}>
           <section className="popup__section">
             <input type="url" name="avatar" className="popup__input popup__input_avatar" placeholder="Ссылка на аватар" required />
             <span className="popup__error popup__error_avatar" id="avatar-error"> </span>
           </section>
         </PopupWithForm>
 
-        <PopupWithForm name="add" title="Новое место" children buttonText="Сохранить" isOpen={isAddPlacePopupOpen} onClose={closeAllPopups}>
+        <PopupWithForm name="add" title="Новое место" buttonText="Сохранить" isOpen={isAddPlacePopupOpen} onClose={closeAllPopups}>
           <section className="popup__section">
             <input type="text" name="title" className="popup__input popup__input_title" placeholder="Название" minLength="2" maxLength="30" required />
             <span className="popup__error popup__error_title" id="title-error"></span>
@@ -105,7 +82,7 @@ function App() {
           </section>
         </PopupWithForm>
 
-        <PopupWithForm name="delete" title="Вы уверены?" children buttonText="Да" isOpen={cardToDelete} onClose={closeAllPopups} />
+        <PopupWithForm name="delete" title="Вы уверены?" buttonText="Да" isOpen={cardToDelete} onClose={closeAllPopups} />
 
         <ImagePopup card={selectedCard} onClose={closeAllPopups} />
 
