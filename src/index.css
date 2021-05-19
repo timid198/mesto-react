@@ -24,8 +24,10 @@
 @import url(./blocks/element/__title-text/element__title-text.css);
 @import url(./blocks/element/__title-like/element__title-like.css);
 @import url(./blocks/element/__title-like/_set/element__title-like_set.css);
+@import url(./blocks/element/__title-like/_unset/element__title-like_unset.css);
 @import url(./blocks/element/__title-counter/element__title-counter.css);
 @import url(./blocks/element/__trash/element__trash.css);
+@import url(./blocks/element/__trash/_set/element__trash_set.css);
 @import url(./blocks/element/__trash/_unset/element__trash_unset.css);
 @import url(./blocks/footer/footer.css);
 @import url(./blocks/footer/__copyright/footer__copyright.css);
