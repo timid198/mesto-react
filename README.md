@@ -1,3 +1,15 @@
+Фронтенд проекта Mesto на React.
+
+Стэк: БЭМ; HTML и Java Script, Create React App.
+
+Функциональность: flex; grid; Webpack; Nested структура БЭМ.
+
+Описание: интерактивная страница, куда можно добавлять фотографии, удалять их и ставить лайки.
+
+Ссылка на проект: https://timid198.github.io/mesto/
+
+Ссылка на репозиторий: git@github.com:timid198/mesto-react.git
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

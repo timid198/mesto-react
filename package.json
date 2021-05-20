@@ -9,7 +9,9 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.1"
+    "web-vitals": "^1.1.1",
+    "homepage": "https://github.com/timid198/mesto-react.git",
+    "deploy": "npm run build&&gh-pages -d build"
   },
   "scripts": {
     "start": "react-scripts start",
