@@ -8,7 +8,7 @@
 
 Ссылка на проект: https://timid198.github.io/mesto/
 
-Ссылка на репозиторий: git@github.com:timid198/mesto-react.git
+Ссылка на репозиторий: https://github.com/timid198/mesto-react.git
 
 # Getting Started with Create React App
 
