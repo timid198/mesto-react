@@ -32,8 +32,7 @@ React.useEffect(() => {
 
 
     return (
-        <PopupWithForm name="edit" title="Редактировать профиль" buttonText="Сохранить" isOpen={isOpen} onClose={onClose}>
-            <form className="popup__form popup-edit__form" onSubmit={handleSubmit} noValidate>
+        <PopupWithForm name="edit" title="Редактировать профиль" buttonText="Сохранить" isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit} >
               <section className="popup__section">
                 <input type="text" value={name} onChange={handleChangeName} name="name" className="popup__input popup__input_name" placeholder="Имя" minLength="2" maxLength="40" required />
                 <span className="popup__error popup__error_name" id="name-error"> </span>
@@ -42,8 +41,6 @@ React.useEffect(() => {
                 <input type="text"  value={description} onChange={handleChangeDescription} name="about" className="popup__input popup__input_about" placeholder="О себе" minLength="2" maxLength="200" required />
                 <span className="popup__error popup__error_about" id="about-error"> </span>
               </section>
-                <button type="submit" className="popup__button popup-edit__button">Сохранить</button>                
-            </form>
         </PopupWithForm>
     )
 }

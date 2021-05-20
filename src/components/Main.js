@@ -1,9 +1,8 @@
 import React from 'react';
 import Card from './Card';
-import Spinner from './Spinner';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, deleteCard, cards, onCardLike, onCardDelete, isLoading }) {
+function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, deleteCard, cards, onCardLike, onCardDelete }) {
 
   const currentUser = React.useContext(CurrentUserContext); 
   
@@ -26,7 +25,7 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, deleteCard
       </section>
 
       <section className="elements">
-        {isLoading ? <Spinner /> : Array.from(cards).map((item) => (<Card key={item.id} card={item} cardClick={onCardClick} onCardDelete={onCardDelete} onCardLike={onCardLike} />))}
+        {Array.from(cards).map((item) => (<Card key={item._id} card={item} cardClick={onCardClick} onCardDelete={onCardDelete} onCardLike={onCardLike} />))}
       </section>
     </main>
   );
