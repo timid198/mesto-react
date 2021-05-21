@@ -6,9 +6,9 @@
 
 Описание: интерактивная страница, куда можно добавлять фотографии, удалять их и ставить лайки.
 
-Ссылка на проект: https://timid198.github.io/mesto/
+Ссылка на проект: https://timid198.github.io/mesto-react/
 
-Ссылка на репозиторий: git@github.com:timid198/mesto-react.git
+Ссылка на репозиторий: https://github.com/timid198/mesto-react.git
 
 # Getting Started with Create React App
 
