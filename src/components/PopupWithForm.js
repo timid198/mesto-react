@@ -2,10 +2,7 @@ import React from 'react';
 
 function PopupWithForm({ name, title, buttonText, isOpen, onClose, onSubmit, children }) {
 
-  let className = `popup popup-${name}`;
-  if (isOpen) {
-    className += ` popup_opened`;
-  }
+  let className = `${isOpen ? `popup popup-${name} popup_opened` : `popup popup-${name}`}`;
 
   return (
     <div className={className}>
