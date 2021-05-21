@@ -17,7 +17,7 @@ function CardDeletePopup({card, onClose, onCardDelete}) {
                 <button type="reset" className="popup__close popup-delete__close" onClick={onClose}></button>
                 <h2 className="popup__title popup-delete__title">Вы уверены?</h2>
                 <form className="popup__form popup-delete__form" onSubmit={handleSubmit} noValidate>
-                    <button type="submit" className="popup__button popup-delete__button">Да</button>
+                    <button type="submit" autoFocus className="popup__button popup-delete__button">Да</button>
                 </form>
             </div>
         </div>
