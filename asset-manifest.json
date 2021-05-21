@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/timid198/mesto-react.git/static/css/main.d6dbf16b.chunk.css",
-    "main.js": "/timid198/mesto-react.git/static/js/main.7e0ee501.chunk.js",
-    "main.js.map": "/timid198/mesto-react.git/static/js/main.7e0ee501.chunk.js.map",
-    "runtime-main.js": "/timid198/mesto-react.git/static/js/runtime-main.46e663ff.js",
-    "runtime-main.js.map": "/timid198/mesto-react.git/static/js/runtime-main.46e663ff.js.map",
-    "static/js/2.b91049b5.chunk.js": "/timid198/mesto-react.git/static/js/2.b91049b5.chunk.js",
-    "static/js/2.b91049b5.chunk.js.map": "/timid198/mesto-react.git/static/js/2.b91049b5.chunk.js.map",
-    "static/js/3.95464ed8.chunk.js": "/timid198/mesto-react.git/static/js/3.95464ed8.chunk.js",
-    "static/js/3.95464ed8.chunk.js.map": "/timid198/mesto-react.git/static/js/3.95464ed8.chunk.js.map",
-    "index.html": "/timid198/mesto-react.git/index.html",
-    "static/css/main.d6dbf16b.chunk.css.map": "/timid198/mesto-react.git/static/css/main.d6dbf16b.chunk.css.map",
-    "static/js/2.b91049b5.chunk.js.LICENSE.txt": "/timid198/mesto-react.git/static/js/2.b91049b5.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/timid198/mesto-react.git/static/media/header-logo.9acae848.svg"
+    "main.css": "/timid198/mesto-react/static/css/main.a01c807b.chunk.css",
+    "main.js": "/timid198/mesto-react/static/js/main.7e0ee501.chunk.js",
+    "main.js.map": "/timid198/mesto-react/static/js/main.7e0ee501.chunk.js.map",
+    "runtime-main.js": "/timid198/mesto-react/static/js/runtime-main.025c2bd8.js",
+    "runtime-main.js.map": "/timid198/mesto-react/static/js/runtime-main.025c2bd8.js.map",
+    "static/js/2.b91049b5.chunk.js": "/timid198/mesto-react/static/js/2.b91049b5.chunk.js",
+    "static/js/2.b91049b5.chunk.js.map": "/timid198/mesto-react/static/js/2.b91049b5.chunk.js.map",
+    "static/js/3.95464ed8.chunk.js": "/timid198/mesto-react/static/js/3.95464ed8.chunk.js",
+    "static/js/3.95464ed8.chunk.js.map": "/timid198/mesto-react/static/js/3.95464ed8.chunk.js.map",
+    "index.html": "/timid198/mesto-react/index.html",
+    "static/css/main.a01c807b.chunk.css.map": "/timid198/mesto-react/static/css/main.a01c807b.chunk.css.map",
+    "static/js/2.b91049b5.chunk.js.LICENSE.txt": "/timid198/mesto-react/static/js/2.b91049b5.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/timid198/mesto-react/static/media/header-logo.9acae848.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.46e663ff.js",
+    "static/js/runtime-main.025c2bd8.js",
     "static/js/2.b91049b5.chunk.js",
-    "static/css/main.d6dbf16b.chunk.css",
+    "static/css/main.a01c807b.chunk.css",
     "static/js/main.7e0ee501.chunk.js"
   ]
 }
