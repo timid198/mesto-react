@@ -31,10 +31,10 @@ function App() {
     setIsEditProfilePopupOpen(true);
   }
 
-  const [deletedCard, setDeletedCard] = React.useState({});
+  const [cardToDelete, setCardToDelete] = React.useState({});
 
   function handleDeleteCard(card) {
-    setDeletedCard(card);
+    setCardToDelete(card);
   }
 
   const [selectedCard, setSelectedCard] = React.useState({});
@@ -47,11 +47,11 @@ function App() {
     setIsEditAvatarPopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setIsEditProfilePopupOpen(false);
-    setDeletedCard({})
+    setCardToDelete({})
     setSelectedCard({});
   }
 
-  const [currentUser, setCurrentUser] = useState([{name: ''}, {about: ''}, {avatar: ''}, {_id: ''}]);
+  const [currentUser, setCurrentUser] = useState( {name: '', about: '', avatar: '', _id: ''} );
   const [cards, setCards] = useState([]);
   const [isLoading, setLoading] = useState(false);
 
@@ -59,31 +59,31 @@ function App() {
     setLoading(true)
     Promise.all([api.getUserData(), api.getCards()])
       .then(res => {
-        setLoading(false)
         let [userData, cardsData] = res;
         setCurrentUser(userData);
         setCards(cardsData);}) 
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => {setLoading(false)})
   }, [])
 
 function handleUpdateUser(props) {
   setLoading(true)
   api.pushUserData(props)
   .then(res => {
-    setLoading(false)
     setCurrentUser(res);
     closeAllPopups();})
-  .catch((err) => console.log(err));
+  .catch((err) => console.log(err))
+  .finally(() => {setLoading(false)});
 }
 
 function handleUpdateAvatar(props) {
   setLoading(true)
   api.changeAvatar(props.avatar)
   .then(res => {
-    setLoading(false)
     setCurrentUser(res);
     closeAllPopups();})
-  .catch((err) => console.log(err));
+  .catch((err) => console.log(err))
+  .finally(() => {setLoading(false)});
   }
   
   function handleCardLike(card) {
@@ -91,29 +91,29 @@ function handleUpdateAvatar(props) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
     api.changeCardsLikes(card._id, isLiked)
     .then((newCard) => {
-      setLoading(false)
       setCards((state) => state.map((c) => c._id === card._id ? newCard : c));})
-    .catch((err) => console.log(err));
+    .catch((err) => console.log(err))
+    .finally(() => {setLoading(false)});
 } 
 
 function handleCardDelete(card) {
   setLoading(true)
   api.deleteCard(card._id)
   .then((newCard) => {
-    setLoading(false)
     setCards((state) => state.filter((c) => c._id === card._id ? !newCard : c));
     closeAllPopups();})
-  .catch((err) => console.log(err));
+  .catch((err) => console.log(err))
+  .finally(() => {setLoading(false)});
 } 
 
 function handleAddPlaceSubmit(props) {
   setLoading(true)
   api.pushAddCardData(props)
   .then(res => {
-    setLoading(false)
     setCards([res, ...cards]);
     closeAllPopups();})
-  .catch((err) => console.log(err));
+  .catch((err) => console.log(err))
+  .finally(() => {setLoading(false)});
 }
 
   return (
@@ -138,7 +138,7 @@ function handleAddPlaceSubmit(props) {
             <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} />
             <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar} /> 
             <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} onAddPlace={handleAddPlaceSubmit} /> 
-            <CardDeletePopup card={deletedCard} onClose={closeAllPopups} onCardDelete={handleCardDelete} />           
+            <CardDeletePopup card={cardToDelete} onClose={closeAllPopups} onCardDelete={handleCardDelete} />           
 
             
 

@@ -2,10 +2,7 @@ import React from 'react';
 
 function ImagePopup({ card, onClose }) {
 
-  let className = `popup`;
-  if (card.link) {
-    className += ` popup_opened`;
-  }
+  let className = `popup ${card.link ? 'popup_opened' : ''}`;
 
   return (
     <div className={className}>

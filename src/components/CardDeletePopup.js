@@ -9,7 +9,7 @@ function CardDeletePopup({card, onClose, onCardDelete}) {
         });
     } 
 
-    let className = `${card._id ? 'popup popup-delete popup_opened' : 'popup popup-delete'}`;
+    let className = `popup popup-delete ${card._id ? 'popup_opened' : ''}`;
 
     return(
         <div className={className}>
