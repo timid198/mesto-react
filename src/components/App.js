@@ -51,7 +51,7 @@ function App() {
     setSelectedCard({});
   }
 
-  const [currentUser, setCurrentUser] = useState( {name: '', about: '', avatar: '', _id: ''} );
+  const [currentUser, setCurrentUser] = useState( {name: '', about: '', avatar: '', _id: '00000000000000'} );
   const [cards, setCards] = useState([]);
   const [isLoading, setLoading] = useState(false);
 
